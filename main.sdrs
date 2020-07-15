@@ -38,6 +38,11 @@ define NAMETEMP "CPU AMDTSI temp"
 define NTEMP "0x54"
 include "hwm_temp.sdrs"
 
+# Voltage sensors
+define NTEMP "0x55"
+define ADRDEV "0"
+include "vdd.sdrs"
+
 sdr type 2
   sensor_owner_id   0x20
   sensor_owner_lun  0

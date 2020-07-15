@@ -1,0 +1,1 @@
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/sys/bus/i2c/devices/1-002f/in"$ADRDEV"_input" div=0.2701149425

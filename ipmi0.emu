@@ -56,6 +56,13 @@ sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp4_input"
 define NTEMP "0x54"
 sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp7_input" div=1000
 
+# Voltage sensors
+define NTEMP "0x55"
+define ADRDEV "0"
+include "vdd.emu"
+
+
+
 # Enable temp control
 sensor_add 0x20 0 3 2 1 poll 1000 file "/var/tempcn/temp_c_en"
 # Auto ON server

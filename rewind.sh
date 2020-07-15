@@ -17,5 +17,7 @@ for sensor in 'lm75' 'hwm_temp'; do
   sed -i 's/$sensor_unr/'${upper_non_recoverable_temp}'/g' ./${sensor}.sdrs;
 done
 
+cp ./vdd_template.sdrs ./vdd.sdrs
+
 sdrcomp ./main.sdrs > /var/ipmi_sim/ipmi0/sdr.20.main;
 ipmi_sim -n &
