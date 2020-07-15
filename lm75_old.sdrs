@@ -1,0 +1,32 @@
+# Board temp sensor
+sdr type 1
+  sensor_owner_id   1
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   $NTEMP
+  entity_id   system_board
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Temperature
+  event_reading_type_code 1
+  analog_data_format  1s_complement
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  base_unit   degrees_C
+  modifier_unit_code  unspecified
+  linearization   linear
+  m     1
+  tolerance   0
+  b     0
+  accuracy    1
+  accuracy_exp    0
+  sensor_direction  input
+  r_exp     0
+  b_exp     0
+  sensor_maximum    255
+  sensor_minimum    0
+  id_string   "ch"$NAMETEMP"_board"
+endsdr

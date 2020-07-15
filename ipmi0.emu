@@ -1,0 +1,74 @@
+mc_setbmc 0x20
+
+# Now add the BMC
+# IPMB DevID DevSDRs?       Rev   Maj   Min   Dev   MFG      Prod
+#                                 FW    FW    Sup   ID       Id
+#                                 Rev   Rev
+mc_add 0x20 0 no-device-sdrs   00    00    00    0x9f  0x00500f 0x0001 persist_sdr
+mc_add 2 1 no-device-sdrs   00    00    00    0xc9  0x00500f 0x0002
+
+mc_enable 2
+
+sel_enable 0x20 1000 0x0a
+
+# Watchdog sensor.  This must be sensor zero.
+# sensor_add 0x20 0 0 35 0x6f event-only
+# sensor_set_event_support 1 0 0 enable scanning per-state \
+# 000000000001111 000000000000000 \
+# 000000000001111 000000000000000
+
+# Add a temperature sensor and its SDR.  Note that sensor 0 is already
+
+define CHI2C "1"
+
+define NTEMP "0x48"
+define ADRDEV "48"
+include "lm75.emu"
+define NTEMP "0x49"
+define ADRDEV "49"
+include "lm75.emu"
+define NTEMP "0x4a"
+define ADRDEV "4a"
+include "lm75.emu"
+define NTEMP "0x4b"
+define ADRDEV "4b"
+include "lm75.emu"
+define NTEMP "0x4c"
+define ADRDEV "4c"
+include "lm75.emu"
+define NTEMP "0x4d"
+define ADRDEV "4d"
+include "lm75.emu"
+define NTEMP "0x4e"
+define ADRDEV "4e"
+include "lm75.emu"
+define NTEMP "0x4f"
+define ADRDEV "4f"
+include "lm75.emu"
+define NTEMP "0x50"
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp1_input" div=1000
+define NTEMP "0x51"
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp2_input" div=1000
+define NTEMP "0x52"
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp3_input" div=1000
+define NTEMP "0x53"
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp4_input" div=1000
+define NTEMP "0x54"
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/hwm_1-002f/temp7_input" div=1000
+
+# Enable temp control
+sensor_add 0x20 0 3 2 1 poll 1000 file "/var/tempcn/temp_c_en"
+# Auto ON server
+sensor_add 0x20 0 8 2 1 poll 3000 file "/etc/auto_on.conf"
+
+# Lock controls
+sensor_add 0x20 0 2 2 1 poll 1000 file "/var/name_gpio/LOCK_IMC/value"
+# Server ready
+sensor_add 0x20 0 4 2 1 poll 1000 file "/var/EVM_status"
+# ACPI pins
+sensor_add 0x20 0 5 2 1 poll 1000 file "/var/name_gpio/ACPI_ST0_TRANS/value"
+sensor_add 0x20 0 6 2 1 poll 1000 file "/var/name_gpio/ACPI_ST1_TRANS/value"
+sensor_add 0x20 0 7 2 1 poll 1000 file "/var/name_gpio/ACPI_ST2_TRANS/value"
+
+
+mc_enable 0x20

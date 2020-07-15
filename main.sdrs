@@ -1,0 +1,172 @@
+define NAMETEMP "CPU 1"
+define NTEMP "0x48"
+include "lm75.sdrs"
+define NAMETEMP "CPU 2"
+define NTEMP "0x49"
+include "lm75.sdrs"
+define NAMETEMP "DDR B D"
+define NTEMP "0x4a"
+include "lm75.sdrs"
+define NAMETEMP "DDR F H"
+define NTEMP "0x4b"
+include "lm75.sdrs"
+define NAMETEMP "CPU_CORE"
+define NTEMP "0x4c"
+include "lm75.sdrs"
+define NAMETEMP "RUN_DL_FET"
+define NTEMP "0x4d"
+include "lm75.sdrs"
+define NAMETEMP "5V_Run"
+define NTEMP "0x4e"
+include "lm75.sdrs"
+define NAMETEMP "Under_ZYNQ"
+define NTEMP "0x4f"
+include "lm75.sdrs"
+define NAMETEMP "CPU die 0"
+define NTEMP "0x50"
+include "hwm_temp.sdrs"
+define NAMETEMP "CPU die 1"
+define NTEMP "0x51"
+include "hwm_temp.sdrs"
+define NAMETEMP "CPU die 2"
+define NTEMP "0x52"
+include "hwm_temp.sdrs"
+define NAMETEMP "CPU die 3"
+define NTEMP "0x53"
+include "hwm_temp.sdrs"
+define NAMETEMP "CPU AMDTSI temp"
+define NTEMP "0x54"
+include "hwm_temp.sdrs"
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   2
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "Lock controls"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   3
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "Enable temp control"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   4
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "Server ready"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   5
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "acpi_0"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   6
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "acpi_1"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   7
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "acpi_2"
+endsdr
+
+sdr type 2
+  sensor_owner_id   0x20
+  sensor_owner_lun  0
+  channel_number    0
+  sensor_number   8
+  entity_id   power_supply
+  entity_instance   1
+  init_scanning   true
+  init_sensor_type  true
+  default_sensor_scan_on  true
+  sensor_type   Physical_Security
+  event_reading_type_code 1
+  rate_unit   none
+  modifier_unit   none
+  percentage    false
+  sensor_direction  input
+  id_string   "auto_ON_serv"
+endsdr

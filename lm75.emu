@@ -1,0 +1,2 @@
+sensor_add 0x20 0 $NTEMP 1 1 poll 1000 file "/var/tempcn/temp_"$CHI2C"-00"$ADRDEV"/temp1_input" div=1000
+
